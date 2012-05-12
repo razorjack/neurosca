@@ -67,3 +67,8 @@ Caveats
 -------
 
 All the things! Due to the server being totally careless when operating on sockets, it's a common issue of OS closing the application with "too many open files (ports)" message or resetting the connection. As mentioned above, this project is just an exploration of Scala.
+
+Bonus
+-----
+
+Scala language has a fantastic feature called pattern matching. Just hit `/version` or `/multiply/3/9` - it's just like Django's urls.py but built in your language. Have a look at [another example](https://gist.github.com/2668943): a simple REPL reacting on certain commands.

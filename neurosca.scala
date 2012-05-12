@@ -13,7 +13,7 @@ val headers = "HTTP/1.1 200 OK\nIncomingConnection: close\nServer: NeuroSca\nCon
 
 // URL routes
 val versionURL = """GET /version(.*)""".r
-val classifyURL = """GET /multiply/(\d)/(\d)(.*)""".r
+val multiplyURL = """GET /multiply/(\d)/(\d)(.*)""".r
 
 class Worker(val id : Int, val dispatcher : Dispatcher) extends Actor {
   def act() {
@@ -46,7 +46,7 @@ class Worker(val id : Int, val dispatcher : Dispatcher) extends Actor {
   def processRequest(address : String, writer : Writer) = {    
     // pattern matching the URL
     address match {
-      case classifyURL(a, b, rest) =>
+      case multiplyURL(a, b, rest) =>
         val result : Int = (a toInt)*(b toInt)
         writer.write(headers + result.toString)
       case versionURL(rest) =>
